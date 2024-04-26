@@ -22,21 +22,18 @@ jobs:
         repository: parse-community/parse-server
         ref: 7.0.0
         path: parse-server
+    - name: Checkout templateCodeAndSpecs
+      uses: actions/checkout@v2
+      with:
+        repository: ddrechse/parse-server-database-adapter-template
+        ref: ''
+        path: oraCodeAndSpecs        
     - name: Create Oracle Storage Adapter Dir
       run: mkdir parse-server/src/Adapters/Storage/Oracle;
            ls -la parse-server/src/Adapters/Storage/Oracle;
-    - name: Checkout Oracle Storage Adapter
-      uses: actions/checkout@v2
-      with:
-        repository: oracle-samples/oracleadapter-parse
-        ref: ''
-        path: parse-server/src/Adapters/Storage/Oracle
-    - name: Validate Oracle Dir
-      run: echo $PWD;
+           cp $PWD/oraCodeAndSpecs/Oracle/*.js $PWD/parse-server/src/Adapters/Storage/Oracle;
            ls -la parse-server/src/Adapters/Storage;
            ls -la parse-server/src/Adapters/Storage/Oracle;  
-           cd parse-server/src/Adapters/Storage/Oracle;
-           rm -rf .git;
     - name: Install Sqlcl
       run: wget https://download.oracle.com/otn_software/java/sqldeveloper/sqlcl-23.3.0.270.1251.zip;
            unzip sqlcl-23.3.0.270.1251.zip;
@@ -49,12 +46,6 @@ jobs:
            ls -la $PWD/instantclient_19_23;         
     - name: Install libaio1
       run: sudo apt-get install libaio1;
-    - name: Checkout templateSpecs
-      uses: actions/checkout@v2
-      with:
-        repository: ddrechse/privateAdapterTemplate
-        ref: ''
-        path: privateAdapterTemplate
     - name: Move package.json, OracleStorageAdapter and OracleCollection
       run: ls;
            echo $PWD;
