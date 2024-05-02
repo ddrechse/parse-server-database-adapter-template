@@ -52,7 +52,9 @@ jobs:
            ls -la $PWD;
            cp $PWD/oraCodeAndSpecs/package.json parse-server;
            rm -rf parse-server/spec;
-           mv $PWD/oraCodeAndSpecs/spec parse-server;
+           mv $PWD/oraCodeAndSpecs/spec/*.spec.js  parse-server/spec;
+           mv $PWD/oraCodeAndSpecs/spec/testExclusionList.json parse-server/spec;
+           mv $PWD/oraCodeAndSpecs/spec/helper.js parse-server/spec;
            cat parse-server/spec/helper.js                   
     - name: Run Free23c
       run: docker run --name free23c -d -p 1521:1521 -e ORACLE_PWD=Welcome12345 container-registry.oracle.com/database/free:latest;
