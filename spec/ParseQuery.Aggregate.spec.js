@@ -1344,6 +1344,7 @@ describe('Parse.Query Aggregate testing', () => {
           },
           {
             $match: { 'tempPointer.value': 2 },
+          },
         ],
       },
     });
