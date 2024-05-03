@@ -51,7 +51,6 @@ jobs:
            echo $PWD;
            ls -la $PWD;
            cp $PWD/oraCodeAndSpecs/package.json parse-server;
-           rm -rf parse-server/spec;
            mv $PWD/oraCodeAndSpecs/spec/*.spec.js  parse-server/spec;
            mv $PWD/oraCodeAndSpecs/spec/testExclusionList.json parse-server/spec;
            mv $PWD/oraCodeAndSpecs/spec/helper.js parse-server/spec;
