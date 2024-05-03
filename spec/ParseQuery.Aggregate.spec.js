@@ -1343,7 +1343,7 @@ describe('Parse.Query Aggregate testing', () => {
             },
           },
           {
-            $match: { '0a23e791-e9b5-457a-9bf9-9c5ecf406f42,
+            $match: { 'tempPointer.value': 2 },
         ],
       },
     });
