@@ -83,7 +83,6 @@ jobs:
            echo "Kick it with 23ai";
            cd parse-server;
            cat package.json;
-           npm install;
            npm install --save @parse/fs-files-adapter;
            npm install oracledb@6.4.0;
            npm ci;
