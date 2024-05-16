@@ -54,7 +54,6 @@ jobs:
            cp $PWD/oraCodeAndSpecs/package.json parse-server;
            mv $PWD/oraCodeAndSpecs/spec/*.spec.js  parse-server/spec;
            mv $PWD/oraCodeAndSpecs/spec/testExclusionList.json parse-server/spec;
-           mv $PWD/oraCodeAndSpecs/spec/helper.js parse-server/spec;
            mv $PWD/oraCodeAndSpecs/spec/jasmine.json parse-server/spec/support;
            cat parse-server/spec/support/jasmine.json;
     - name: Run Free23c
